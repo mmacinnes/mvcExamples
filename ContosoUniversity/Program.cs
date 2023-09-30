@@ -2,7 +2,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ContosoUniversity.Data;
 using Microsoft.Extensions.DependencyInjection;
-using Lab5.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,10 +15,6 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddRoles<IdentityRole>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
-
-builder.Services.AddRazorPages();
-builder.Services.AddDbContext<SchoolContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("SchoolContext") ?? throw new InvalidOperationException("Connection string 'SchoolContext' not found.")));
 
 builder.Services.AddControllersWithViews();
 
