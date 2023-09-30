@@ -12,7 +12,7 @@ This version uses the
   Identity Framework with Individual accounts
   SQL Server Express
 
-Copde was developed using Visual Studi Code, the course editing tool
+Copde was developed using Visual Studio Code, the course editing tool
 
 Myles MacInnes
 Professor, ACSIT
