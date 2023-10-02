@@ -67,8 +67,8 @@ namespace ContosoUniversity.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CourseID"] = new SelectList(_context.Course, "CourseID", "CourseID", enrollment.CourseID);
-            ViewData["StudentID"] = new SelectList(_context.Student, "StudentID", "StudentID", enrollment.StudentID);
+            ViewData["CourseID"] = new SelectList(_context.Course, "CourseID", "Title", enrollment.CourseID);
+            ViewData["StudentID"] = new SelectList(_context.Student, "StudentID", "DisplayName", enrollment.StudentID);
             return View(enrollment);
         }
 
@@ -85,8 +85,8 @@ namespace ContosoUniversity.Controllers
             {
                 return NotFound();
             }
-            ViewData["CourseID"] = new SelectList(_context.Course, "CourseID", "CourseID", enrollment.CourseID);
-            ViewData["StudentID"] = new SelectList(_context.Student, "StudentID", "StudentID", enrollment.StudentID);
+            ViewData["CourseID"] = new SelectList(_context.Course, "CourseID", "Title", enrollment.CourseID);
+            ViewData["StudentID"] = new SelectList(_context.Student, "StudentID", "DisplayName", enrollment.StudentID);
             return View(enrollment);
         }
 
@@ -122,8 +122,8 @@ namespace ContosoUniversity.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["CourseID"] = new SelectList(_context.Course, "CourseID", "CourseID", enrollment.CourseID);
-            ViewData["StudentID"] = new SelectList(_context.Student, "StudentID", "StudentID", enrollment.StudentID);
+            ViewData["CourseID"] = new SelectList(_context.Course, "CourseID", "Title", enrollment.CourseID);
+            ViewData["StudentID"] = new SelectList(_context.Student, "StudentID", "DisplayName", enrollment.StudentID);
             return View(enrollment);
         }
 

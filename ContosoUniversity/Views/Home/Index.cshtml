@@ -1,5 +1,10 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+
+    string message = "Please LogIn to contine "; 
+    if (ViewBag.UserName != null) {
+        message = "Welcome Back ";
+    }
 }
 
 <div class="text-center">
@@ -9,4 +14,7 @@
     <p>Adapted from Microsoft Tutorial</br>
     <a href="https://learn.microsoft.com/en-us/aspnet/core/data/ef-mvc/intro?view=aspnetcore-7.0" target="_blank">Tutorial: Get started with EF Core in an ASP.NET MVC web app</a>
     </p>
+
+    <h1>@message @ViewBag.UserName</h1> 
+    
 </div>
