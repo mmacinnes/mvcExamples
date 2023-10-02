@@ -18,7 +18,8 @@ public class HomeController : Controller
     [AllowAnonymous]
     public IActionResult Index()
     {
-        if (User.Identity.IsAuthenticated) 
+        
+        if (User.Identity?.IsAuthenticated == true) 
         {
             ViewBag.UserName = User.Identity.Name;
         }
