@@ -11,5 +11,10 @@ namespace ContosoUniversity.Models
         public DateTime EnrollmentDate { get; set; }
 
         public ICollection<Enrollment>? Enrollments { get; set; }
+
+        public string DisplayName
+        {
+            get { return LastName + ", " + FirstMidName; }
+        }
     }
 }

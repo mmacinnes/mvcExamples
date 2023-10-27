@@ -1,0 +1,107 @@
+﻿@page "/doasisayspa"
+@using DoAsISay.Data;
+
+<h3>Do As I Say
+    @if (showStart)
+    {
+        <label for="Play"></label>
+        <button id="Play" class="btn btn-primary" @onclick="OnButtonClickPlay">Start</button>
+    }
+    @if (showNext)
+    {
+        <label for="Next"></label>
+        <button id="Next" class="btn btn-primary" @onclick="OnButtonClickNext">Next</button>
+    }
+    @if (showRepeat)
+    {
+        <label for="Repeat"></label>
+        <button id="Repeat" class="btn btn-primary" @onclick="OnButtonClickRePlay">Repeat</button>
+    }
+    @if (showStop)
+    {
+        <label for="Stop"></label>
+        <button id="Stop" class="btn btn-primary" @onclick="OnButtonClickStop">Stop</button>
+    }
+    <label id="correct">Score = </label>@numCorrect 
+    <label id="reps">Remaining = </label>@numReps
+</h3>
+
+<div id="GameBoard" class="text-center" style="background-color:cornsilk">
+   
+    @if (showBoard)
+    {
+
+        <table style="width:@gb.BdWidth.ToString()px; height:@gb.BdHeight.ToString()px">
+            @for (int i = 0; i < @gb.NumRows; i++)
+            {
+                <tr>
+                    @for (int j = 0; j < @gb.NumCols; j++)
+                    {
+                        GameSquare gs = @gb.GetGameSquare(i, j);
+                        
+                        string gsId = @gs.ID.ToString();
+                        <td>
+                            <a @onclick="@(e => GameSquareClick(gsId))">
+                                <span style="font-size:@gb.FontSize.ToString()px; color:@gs.ColorFore; background-color:@gs.ColorBack;">
+                                    @gs.BoardValue
+                                </span> 
+                            </a>
+                        </td>
+                    }
+                </tr>
+            }
+        </table>
+    }
+</div>
+<div id="GameSettings">
+    <br/>
+    <label for="rows">Rows: </label>
+    <input id="rows" type="number" min="3" max="10" step="1" style="width: 3em;" value="@InputRows" @onchange="@((ChangeEventArgs __e) => InputRows = __e?.Value?.ToString())"/>
+    <label for="cols">  Cols: </label>
+    <input id="cols" type="number" min="3" max="10" step="1" style="width: 3em;" value="@InputCols" @onchange="@((ChangeEventArgs __e) => InputCols = __e?.Value?.ToString())"/>
+    <label for="numinstr">  Number of Instructions: </label>
+    <input id="numinstr" type="number" min="1" max="10"  step="1" style="width: 3em;" value="@NumInstrs" @onchange="@((ChangeEventArgs __e) => NumInstrs = __e?.Value?.ToString())"/>
+    <label for="numreps">  Number of Repetitions: </label>
+    <input id="numreps" type="number" min="1" max="10" step="1" style="width: 3em;" value="@NumReps" @onchange="@((ChangeEventArgs __e) => NumReps = __e?.Value?.ToString())" />
+    <label for="type">  Type: </label>
+    <select id="type" class="valid" value="@CellType" @onchange="@((ChangeEventArgs __e) => CellType = __e?.Value?.ToString())">
+                                <option value="Blank" selected>Blank</option>
+                                <option value="Letters">Letters</option>
+                                <option value="Numbers">Numbers</option>
+                                <option value="Shapes">Shapes</option>
+                                </select>
+    <label for="clickedcell">Clicked Cell: </label>@clickedCell
+</div>
+<div>
+    <label for="voices">Select Voice: </label>
+    <select id="voices" @bind="@InputVoice">
+        @if (Voices != null)
+        {
+            @foreach (var lang in Voices)
+            {
+                <option value="@lang.Name">@lang.Name</option>
+            }
+        }
+    </select>
+    <label for="volume">Volume: </label>
+    <input id="volume" type="number" min="0" max="1" step="0.1" value="@InputVolume" @onchange="@((ChangeEventArgs __e) => InputVolume = __e?.Value?.ToString())"/>
+    <label for="rate">Rate: </label>
+    <input id="rate" type="number" min="0.1" max="10" step="0.1" value="@InputRate" @onchange="@((ChangeEventArgs __e) => InputRate = __e?.Value?.ToString())"/>
+    <label for="pitch">Pitch: </label>
+    <input id="pitch" type="number" min="0" max="2" step="0.1" value="@InputPitch" @onchange="@((ChangeEventArgs __e) => InputPitch = __e?.Value?.ToString())" />
+    <label for="pause1">Pause Between Utterances: </label>
+    <input id="pause1" type="number" min="1000" max="10000" step="500" value="@PauseBetweenUtterance" @onchange="@((ChangeEventArgs __e) => PauseBetweenUtterance = __e?.Value?.ToString())" />
+    <label for="pause2">Pause Between Distraction: </label>
+    <input id="pause2" type="number" min="500" max="10000" step="100" value="@PauseBetweenDistraction" @onchange="@((ChangeEventArgs __e) => PauseBetweenDistraction = __e?.Value?.ToString())" />
+    <br/>
+    @if (showReDraw)
+    {
+        <button id="Draw" class="btn btn-primary" @onclick="OnButtonClickDrawBoard">Draw Board</button>
+    }
+    <label id="height">Window Height: </label>@windowHeight
+    <label id="width">Window Width: </label>@windowWidth
+    <audio id="bonus" src="/sounds/bonus.wav"/>
+    <audio id="losing" src="/sounds/losing.wav"/>
+    <audio id="treasure" src="/sounds/treasure.wav"/>
+    <br/>
+</div>

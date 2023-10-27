@@ -1,0 +1,29 @@
+﻿table {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table, th, td {
+    border: 1px solid black;
+    border-width: medium;
+    border-collapse: collapse;
+    text-align: center;
+    font-family: monospace;
+}
+
+btn-margin10 {
+    padding-left: 10px;
+}
+
+divider5 {
+    width: 5px;
+    height: auto;
+    display: inline;
+}
+label {
+    padding-left: 10px;
+    padding-right: 5px;
+    padding-bottom: 5px;
+    text-transform: none;
+    display: inline-block
+}

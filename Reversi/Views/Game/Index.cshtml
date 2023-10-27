@@ -1,0 +1,31 @@
+﻿@model Reversi.Models.Board
+@{   
+    ViewData["Title"] = "Game Page";
+}
+<div class="text-center" style="background-color:cornsilk">
+    <h1 class="display-4">
+        Reversi Board - Player Turn @if (ViewBag.PlayerColor == -1)
+        {<img src="~/images/rTile_G.png" width="50" height="50" />}
+        @if (ViewBag.PlayerColor == 1)
+        {<img src="~/images/rTile_W.png" width="50" height="50" />}
+    </h1>
+    <h3>
+        White Count = @Model.WhiteCount.ToString()  Green Count = @Model.BlackCount.ToString()
+    </h3>
+    
+    @foreach (GameSquare gs in Model.GameSquares)
+    {
+        <a asp-action="ClickSquare" asp-route-id="@gs.ID">
+            @if (gs.BoardValue == 1)
+            {<img src="~/images/rTile_W.png" width="50" height="50"/>}
+            @if (gs.BoardValue == 0)
+            {<img src="~/images/rTile_B.png"  width="50" height="50"/>}
+            @if (gs.BoardValue ==-1)
+            {<img src="~/images/rTile_G.png"  width="50" height="50"/>}
+         </a> 
+         @if (gs.BoardCol == 7)
+         { <br> }
+
+     }
+
+</div>
