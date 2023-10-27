@@ -49,8 +49,8 @@ namespace ContosoUniversity.Controllers
         // GET: Enrollments/Create
         public IActionResult Create()
         {
-            ViewData["CourseID"] = new SelectList(_context.Course, "CourseID", "CourseID");
-            ViewData["StudentID"] = new SelectList(_context.Student, "StudentID", "StudentID");
+            ViewData["CourseID"] = new SelectList(_context.Course, "CourseID", "Title");
+            ViewData["StudentID"] = new SelectList(_context.Student, "StudentID", "DisplayName");
             return View();
         }
 
