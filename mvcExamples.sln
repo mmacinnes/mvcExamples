@@ -5,6 +5,10 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContosoUniversity", "ContosoUniversity\ContosoUniversity.csproj", "{C90FCC0E-89FD-4D8C-A0EC-BF12CF2E2282}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Reversi", "Reversi\Reversi.csproj", "{0CCD906E-B442-4BD0-972C-FA443AA34677}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoAsISay", "DoAsISay\DoAsISay.csproj", "{C5406604-B158-42AB-BDC8-C9E9E065B3D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{C90FCC0E-89FD-4D8C-A0EC-BF12CF2E2282}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C90FCC0E-89FD-4D8C-A0EC-BF12CF2E2282}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C90FCC0E-89FD-4D8C-A0EC-BF12CF2E2282}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0CCD906E-B442-4BD0-972C-FA443AA34677}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0CCD906E-B442-4BD0-972C-FA443AA34677}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0CCD906E-B442-4BD0-972C-FA443AA34677}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0CCD906E-B442-4BD0-972C-FA443AA34677}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5406604-B158-42AB-BDC8-C9E9E065B3D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5406604-B158-42AB-BDC8-C9E9E065B3D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5406604-B158-42AB-BDC8-C9E9E065B3D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5406604-B158-42AB-BDC8-C9E9E065B3D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
