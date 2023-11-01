@@ -15,18 +15,26 @@ namespace Reversi.Controllers
         {
             board.SetForNewGame();
             ViewBag.PlayerColor = playercolor;
+            ViewBag.PlayClick = 0; // no sound
             return View(board);
         }
         public IActionResult ClickSquare(int id)
         {
+            ViewBag.PlayClick = 2; // Default to a miss sound
             if (board.IsValidMove(playercolor, board.GameSquares[id].BoardRow, board.GameSquares[id].BoardCol))
             { 
                 board.MakeMove(playercolor, board.GameSquares[id].BoardRow, board.GameSquares[id].BoardCol);
                 playercolor = -1 * playercolor;
+                ViewBag.PlayClick = 1; // C;ick sound
             }
 
             // If player has no valid moves, change player
-            if (!board.HasAnyValidMove(playercolor)) playercolor = -1 * playercolor;
+            if (!board.HasAnyValidMove(playercolor)) 
+            {
+                playercolor = -1 * playercolor;
+                ViewBag.PlayClick = 0;
+                ViewBag.PlayClick = 3;  // bonus soung
+            }
 
             ViewBag.PlayerColor = playercolor;
             return View("Index", board);

@@ -8,6 +8,18 @@
         {<img src="~/images/rTile_G.png" width="50" height="50" />}
         @if (ViewBag.PlayerColor == 1)
         {<img src="~/images/rTile_W.png" width="50" height="50" />}
+        @if (ViewBag.PlayClick == 1) 
+        { 
+            <audio src="~/sounds/mixkit-classic-click-1117.wav" autoplay/>
+        }
+        @if (ViewBag.PlayClick == 2) 
+        { 
+            <audio src="~/sounds/mixkit-arrow-whoosh-1491.wav" autoplay/>
+        }
+        @if (ViewBag.PlayClick == 3) 
+        { 
+            <audio src="~/sounds/bonus.wav" autoplay/>
+        }
     </h1>
     <h3>
         White Count = @Model.WhiteCount.ToString()  Green Count = @Model.BlackCount.ToString()
